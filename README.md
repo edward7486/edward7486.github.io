@@ -1,0 +1,1 @@
+This site was made using HTML, CSS/SASS, JavaScript, and Jekyll.
