@@ -1,0 +1,106 @@
+<h4>Background Information</h4>
+<p>Apptio builds products that focus on IT Cost Transparency, allowing executives and managers to make strategic and insightful decisions regarding their IT costs. Datalink is a product I worked on during my internship. It is a product focused on data ingestion, allowing users to sync various sources of their financial data directly into Apptio's products.</p>
+
+<h4>Problem</h4>
+<p>Datalink was in bad need of a UI refresh, as the current product had some usability issues and did not match the look-and-feel of other core Apptio products. It was outdated, and some pages made terrible use of white space. I was assigned to work directly with a software development engineer on the Datalink team, who provided oversight while I coded the new UI using the Twitter Bootstrap framework.</p>
+
+<a href="/assets/img/work/apptio-ui/mgr-agent.png" data-lightbox="ui-old" data-title="Manager Agents.">
+	<img class="img-resize-third" src="/assets/img/work/apptio-ui/mgr-agent.png" />
+</a>
+<a href="/assets/img/work/apptio-ui/mgr-user.png" data-lightbox="ui-old" data-title="Manager Users.">
+	<img class="img-resize-third" src="/assets/img/work/apptio-ui/mgr-user.png" />
+</a>
+<a href="/assets/img/work/apptio-ui/mgr-adduser.png" data-lightbox="ui-old" data-title="Manager Add User.">
+	<img class="img-resize-third" src="/assets/img/work/apptio-ui/mgr-adduser.png" />
+</a>
+<a href="/assets/img/work/apptio-ui/con-con.png" data-lightbox="ui-old" data-title="Connector List.">
+	<img class="img-resize-third" src="/assets/img/work/apptio-ui/con-con.png" />
+</a>
+<a href="/assets/img/work/apptio-ui/con-user.png" data-lightbox="ui-old" data-title="Connector Users.">
+	<img class="img-resize-third" src="/assets/img/work/apptio-ui/con-user.png" />
+</a>
+<a href="/assets/img/work/apptio-ui/con-adduser.png" data-lightbox="ui-old" data-title="Connector Add User.">
+	<img class="img-resize-third" src="/assets/img/work/apptio-ui/con-adduser.png" />
+</a>
+<a href="/assets/img/work/apptio-ui/con-admin.png" data-lightbox="ui-old" data-title="Connector Administration.">
+	<img class="img-resize-third" src="/assets/img/work/apptio-ui/con-admin.png" />
+</a>
+<a href="/assets/img/work/apptio-ui/con-newcon.png" data-lightbox="ui-old" data-title="Connector New Connector.">
+	<img class="img-resize-third" src="/assets/img/work/apptio-ui/con-newcon.png" />
+</a>
+
+<h4>Researching the Product</h4>
+<p>Before getting into redesign, I spent a day learning how to use the product and what it allows the user to do. I had to understand the terminology ('manager' vs. 'agent' vs. 'engine'), understand why a user had to do things like add an agent in the connectors screen before registering it in the manager screen, then adding connectors to that agent back in connectors (it isn't as complicated as it sounds I promise). I was fortunate that the product was simple to use, but had some glaring usability issues (even one that directly violates Nielsen's heuristic (Error Prevention): when deleting a user, there was no prompt for the user to confirm this (irreversible) action.</p>
+<p>I also spent time speaking with the Datalink team to learn about the user and the use cases. I discovered that users don't commonly spend more than one day per month using Datalink (set it and forget type of product), and when they do come back for use it is usually under duress because of a data ingestion issue. I wanted to make sure that users could self-solve their problems with ease.</p>
+
+<h4>Sketches</h4>
+<p>I normally start all of my projects with quick sketches to get my thoughts out quickly. Below is my first attempt at sketching the 'Manager' screen. To aid in sketching, I referred to the sitemap I made previously to ensure I was capturing all content and actions. The navigation bar is an element designed by our senior designers, vetted throughout the organization, and thus a critical part of my design. All other content, was up to me.</p>
+
+<a href="/assets/img/work/apptio-ui/ui-sketch1.jpg" data-lightbox="ui-sketch" data-title="Getting ideas out quickly.">
+	<img class="img-resize-half" src="/assets/img/work/apptio-ui/ui-sketch1.jpg" />
+</a>	
+
+<a href="/assets/img/work/apptio-ui/ui-sketch2.jpg" data-lightbox="ui-sketch" data-title="Another quick sketch.">
+	<img class="img-resize-half" src="/assets/img/work/apptio-ui/ui-sketch2.jpg" />
+</a>
+
+<h4>Quick Wireframe and Flow Document</h4>
+<p>To really put the sitemap and sketches together, I decided to put together a quick document that outlines the user flow and low-fidelity wireframe. Understanding the user flow was critical in pinpointing areas I could focus on and improve.</p>
+<p>Opens in new pdf.</p>
+
+<a href="/assets/img/work/apptio-ui/datalink-wf.pdf" target="_blank">
+	<img src="/assets/img/work/apptio-ui/dl-wireframe.jpg" />
+</a>
+
+<h4>Interactive Prototype with HTML/CSS</h4>
+<p>Once I had an idea of what I wanted to do, I used Twitter Bootstrap to make an interactive prototype that could be shown and demoed to my team and the Datalink team. For interaction, I added jQuery validation for forms, and used the jQuery plugin DataTables for the Connecters page to show search, sorting, and pagination. I used PHP for includes.</p>
+
+<a href="/assets/img/work/apptio-ui/ver1-mgr.png" data-lightbox="ver1" data-title="New Manager Page.">
+	<img class="img-resize-third" src="/assets/img/work/apptio-ui/ver1-mgr.png" />
+</a>
+<a href="/assets/img/work/apptio-ui/ver1-con.png" data-lightbox="ver1" data-title="New Connectors List Page using DataTables.">
+	<img class="img-resize-third" src="/assets/img/work/apptio-ui/ver1-con.png" />
+</a>
+<a href="/assets/img/work/apptio-ui/ver1-validate.png" data-lightbox="ver1" data-title="Connector Page with Validation.">
+	<img class="img-resize-third" src="/assets/img/work/apptio-ui/ver1-validate.png" />
+</a>
+
+<h4>Usability Fixes</h4>
+<p>A major usability fix was the delete user function. I added a modal asking the user for confirmation and notifying them the action is irreversible.</p>
+
+<a href="/assets/img/work/apptio-ui/ver1-delete.png" data-lightbox="del_modal" data-title="Delete user modal.">
+	<img src="/assets/img/work/apptio-ui/ver1-delete.png" />
+</a>
+
+<p>Landing page after signing in to Connectors was another usability fix. We changed the first page the user saw from the connectors list to the administration page, which is where users want to be to begin fixing issues.</p>
+
+<h4>Revision</h4>
+<p>The navigation bar was revised because the navigation used did not fit the needs of the more simple Datalink product (breadcrumbs were not needed and titles seemed redundant). I switched out the navigation bar for a smaller bar, and drastically simplified the navigation to only show necessary components: logo, title of page, primary dropdown menu, and a pulled right hamburger menu for help and logging out.</p>
+
+<a href="/assets/img/work/apptio-ui/ver2-user.png" data-lightbox="ver2" data-title="Redone with new navigation bar.">
+	<img src="/assets/img/work/apptio-ui/ver2-user.png" />
+</a>
+
+<h4>Integration</h4>
+<p>After gaining approval from the design and Datalink team, I began integration of live Java code into my prototype. This involved getting setup with Mercurial and Sourcetree for source control. For questions or to see a demo, e-mail me: enguyen@uw.edu.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
