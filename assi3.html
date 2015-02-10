@@ -71,14 +71,14 @@
     		<div class="row">
 
     			<div class = "col-md-9" id="map">
-    				<h4 style="text-align:center;">Horsepower vs. Engine Size</h4>
+    				<h4 style="text-align:center;">Car Price to Other Variables</h4>
 				</div>
 
 				<div class="col-md-3">
 
 					<h4>Manufacturer</h4>
 						<select id="maker">
-							<option>Select Maker</option>
+							<option value="None">Select Maker</option>
 							<option value="Acura">Acura</option>
 							<option value="Audi">Audi</option>
 							<option value="BMW">BMW</option>
@@ -125,6 +125,10 @@
 
 					</p>
 
+					<h4>Sort By:</h4>
+					<button type="button" class="btn btn-default btn-sm" id="sortMpg">MPG City</button>
+					<button type="button" class="btn btn-default btn-sm" id="sortHP">Horsepower</button>
+					<button type="button" class="btn btn-default btn-sm" id="sortFuel">Fuel Tank</button>
 					<hr />
 
 					<p><button type="button" class="btn btn-default btn-sm" id="clearfilter">Clear All Filters</button></p>
@@ -154,16 +158,6 @@
 		var w = 825;
 		var h = 900;
 
-		// Scales //
-
-		var xScale = d3.scale.linear()
-					.domain([ 0 , 300])
-					.range([ 0 , 600 ]);
-
-		var yScale = d3.scale.linear()
-					.domain([ 0 , 5.7 ])
-					.range([ 650 , 0 ]);	
-
 		// Creating a Generic Tooltip		
 
 		var tooltip = d3.select("body").append("div")   
@@ -173,6 +167,16 @@
 		// Draw Canvas and Circles //
 
 		d3.json("cars.json", function(data) {
+
+			// Scales //
+
+			var xScale = d3.scale.linear()
+						.domain([ 0 , 300])
+						.range([ 0 , 600 ]);
+
+			var yScale = d3.scale.linear()
+						.domain([ 0 , d3.max(data, function(d) {return d.Price;}) ])
+						.range([ 650 , 0 ]);	
 
 			// Create x-Axis // 
 
@@ -195,7 +199,7 @@
 		    		.attr("height", h)
 		    		.attr("width", w)
 		    		.append("g")
-		    			.attr("transform", "translate(150, 35)");
+		    			.attr("transform", "translate(125, 35)");
 
 			// Draw X-Axis as a Group Element //
 
@@ -206,26 +210,26 @@
 
 			// Draw X-Axis Label //
 
-			svg.append("text")
-				.attr("x", ( w / 2 ) - 120)
-				.attr("y", 710)
-				.attr("class", "axislabels")
-				.text("HORSEPOWER");
-
+			var xLabel = svg.append("text")
+					.attr("x", ( w / 2 ) - 120)
+					.attr("y", 710)
+					.attr("class", "axislabels")
+					.attr("transform", "translate(-50, 0)")
+					.text("HORSEPOWER");
 
 			// Draw Y-Axis Label //
 
 			svg.append("text")
 				.attr("class", "axislabels")
-				.attr("transform", "translate(-150, 300)")
-				.text("ENGINE SIZE");
+				.attr("transform", "translate(-100, 300)")
+				.text("PRICE");
 
 			// Append Circles // 
 
 			var circles = svg.selectAll("circle")
-					.data(data)
-					.enter()
-					.append("circle");
+				.data(data)
+				.enter()
+				.append("circle");
 
 			// Append Y-Axis // 
 
@@ -236,40 +240,41 @@
 			// Circle Attributes //
 
 			circles
-					.attr("cx", function(d){ return xScale(d.Horsepower) ; })
-					.attr("cy", function(d){ return yScale(d.EngineSize) ; })
-					.attr("r", 10)
-					.attr("fill", "steelblue")
-					.style("opacity", 0.8)
+				.attr("cx", function(d){ return xScale(d.Horsepower) ; })
+				.attr("cy", function(d){ return yScale(d.Price) ; })
+				.attr("r", 10)
+				.attr("fill", "steelblue")
+				.style("opacity", 0.8)
 
-					// Mouseover for Tooltip //
-					.on("mouseover", function(d) {      
-			            tooltip
-			            	.transition()        
-				                .duration(200)      
-				                .style("opacity", .96)
-				                d3.select(this).attr("class", "hovered");   
-			            tooltip
-			            	.html(
-				            	"<strong>" + d.Manufacturer + " " + d.Model + "</strong>" + "<br /><br />" +
-				            	"Price: " + d.Price + "k" + "<br />" + 
-				            	"Horsepower: " + d.Horsepower + "<br />" + 
-				            	"MPG City: " + d.MPG_city + "<br />" +
-				            	"MPG Highway: " + d.MPG_highway + "<br />" +  
-				            	"Engine Size: " + d.EngineSize + "<br />" +
-				            	"Airbags: " + d.AirBags
-				            	)  
-				                .style("left", (d3.event.pageX) + "px")     
-				                .style("top", (d3.event.pageY - 135) + "px"); 
-			            })
+				// Mouseover for Tooltip //
+				.on("mouseover", function(d) {      
+		            tooltip
+		            	.transition()        
+			                .duration(200)      
+			                .style("opacity", .96)
+			                d3.select(this).attr("class", "hovered");   
+		            tooltip
+		            	.html(
+			            	"<strong>" + d.Manufacturer + " " + d.Model + "</strong>" + "<br /><br />" +
+			            	"Price: " + d.Price + "k" + "<br />" + 
+			            	"Horsepower: " + d.Horsepower + "<br />" + 
+			            	"MPG City: " + d.MPG_city + "<br />" +
+			            	"MPG Highway: " + d.MPG_highway + "<br />" +  
+			            	"Engine Size: " + d.EngineSize + "<br />" +
+			            	"Airbags: " + d.AirBags + "<br />" + 
+			            	"Fuel Tank Capacity: " + d.Fuel_tank_capacity
+			            	)  
+			                .style("left", (d3.event.pageX) + "px")     
+			                .style("top", (d3.event.pageY - 135) + "px"); 
+		            })
 
-		            // Mouseout for Tooltip //                   
-			        .on("mouseout", function(d) {       
-			            tooltip.transition()        
-			                .duration(750)      
-			                .style("opacity", 0)
-			                d3.select(this).attr("class", null);
-			        });	
+	            // Mouseout for Tooltip //                   
+		        .on("mouseout", function(d) {       
+		            tooltip.transition()        
+		                .duration(750)      
+		                .style("opacity", 0)
+		                d3.select(this).attr("class", null);
+		        });	
 
 			// Airbag Radio Filters //
 
@@ -283,7 +288,6 @@
 							.transition()
 							.filter(function(d){ return d.AirBags != "None";})
 								.attr("fill", "green")
-								.attr("r", 12)
 								.duration(750);
 				    } else if (document.getElementById('no-airbag').checked) {
 				    	circles
@@ -292,7 +296,6 @@
 							.transition()
 							.filter(function(d){ return d.AirBags == "None";})
 								.attr("fill", "#FF5200")
-								.attr("r", 12)
 								.duration(750);
 				    }
 			})
@@ -303,14 +306,91 @@
 				.on("click", function(){
 					document.getElementById("airbag").checked = false,
 					document.getElementById("no-airbag").checked = false,
+					xScale
+						.domain([0, d3.max(data, function(d){return d.Horsepower;})])
+						.range([0,600])
+					xAxis
+						.scale(xScale)
+						.orient("bottom")
+						.ticks(10)
+					xLabel
+						.text("HORSEPOWER")
+					svg.select("g.axis")
+						.call(xAxis)
 					circles
 						.transition()
+						.attr("cx", function(d){ return xScale(d.Horsepower) ; })
 						.attr("fill", "steelblue")
 						.attr("r", "10")
 						.attr("stroke", "none")
 						.attr("stroke-width", "none")
 						.duration(1000);
-			})		
+					var element = document.getElementById("maker");
+					element.value = "None";
+			})	
+
+			// Sort MPG //
+
+			d3.selectAll("#sortMpg")
+				.on("click", function(){
+					xScale
+						.domain([0, d3.max(data, function(d){return d.MPG_city;})])
+						.range([0,600])
+					xAxis
+						.scale(xScale)
+						.orient("bottom")
+						.ticks(10)
+					xLabel
+						.text("MILES PER GALLON (CITY)")
+					svg.select("g.axis")
+						.call(xAxis)
+					circles
+						.transition()
+						.attr("cx", function(d){return xScale(d.MPG_city);})
+						.duration(1000);
+			})	
+
+			// Sort Horsepower //
+
+			d3.selectAll("#sortHP")
+				.on("click", function(){
+					xScale
+						.domain([0, d3.max(data, function(d){return d.Horsepower;})])
+						.range([0,600])
+					xAxis
+						.scale(xScale)
+						.orient("bottom")
+						.ticks(10)
+					xLabel
+						.text("HORSEPOWER")
+					svg.select("g.axis")
+						.call(xAxis)
+					circles
+						.transition()
+						.attr("cx", function(d){return xScale(d.Horsepower);})
+						.duration(1000);
+			})
+
+			// Sort Fuel Tank Capacity //
+
+			d3.selectAll("#sortFuel")
+				.on("click", function(){
+					xScale
+						.domain([0, d3.max(data, function(d){return d.Fuel_tank_capacity;})])
+						.range([0,600])
+					xAxis
+						.scale(xScale)
+						.orient("bottom")
+						.ticks(10)
+					xLabel
+						.text("FUEL TANK CAPACITY (GALLONS)")
+					svg.select("g.axis")
+						.call(xAxis)
+					circles
+						.transition()
+						.attr("cx", function(d){return xScale(d.Fuel_tank_capacity);})
+						.duration(1000);
+			})												
 
 			// Manufacturer Dropdown Select //
 
