@@ -59,6 +59,10 @@
 				top: -10px;
 			}
 
+			#sortHP {
+				margin-top: 4px;
+			}
+
 		</style>
 	</head>
 	<body>
@@ -120,6 +124,10 @@
 					</div>
 				</div>
 				<div class="col-md-2">
+					<button type="button" class="btn btn-primary btn-sm" id="sortPrice">Sort by Price</button>
+					<button type="button" class="btn btn-success btn-sm" id="sortHP">Sort by Horsepower</button>
+				</div>
+				<div class="col-md-2">
 					<button type="button" class="btn btn-default btn-sm" id="clearfilter">Clear All Filters</button></p>
 				</div>
 			</div>
@@ -140,12 +148,6 @@
 		var w = 1440;
 		var h = 500;
 
-		// Scales //
-
-		var xScale = d3.scale.linear()
-					.domain([ 0 , 300])
-					.range([ 0 , 1100 ]);	
-
 		var tooltip = d3.select("body").append("div")   
 			.attr("class", "tooltip")               
 			.style("opacity", 0);					
@@ -154,28 +156,44 @@
 
 		d3.json("cars.json", function(data) {
 
+			// Create initial X-Scale //
+
+			var xScale = d3.scale.linear()
+					.domain([ 0 , d3.max(data, function(d){return d.Horsepower;} ) ])
+					.range([ 0 , 1100 ]);
+
+			// Create X-Axis //
+
 			var xAxis = d3.svg.axis()
 					.scale(xScale)
 					.orient("bottom")
 					.ticks(10);
 
+			// Create Svg Canvas //
+					
     		var svg = d3.select("#map")
 		    		.append("svg")
 		    		.attr("height", h)
 		    		.attr("width", w)
 		    		.append("g")
-		    			.attr("transform", "translate(10, -200)");		
+		    			.attr("transform", "translate(10, -200)");	
+
+			// Create Circles //	
 
 			var circles = svg.selectAll("circle")
 					.data(data)
 					.enter()
 					.append("circle");
 
-			svg.append("text")
-				.attr("x", 500)
-				.attr("y", 550)
-				.attr("class", "xlabel")
-				.text("HORSEPOWER");
+			// X-Axis Label //
+
+			var xLabel = svg.append("text")
+					.attr("x", 500)
+					.attr("y", 550)
+					.attr("class", "xlabel")
+					.text("HORSEPOWER");
+
+			// Call & Group + Translate x-Axis Down Under axes //
 
 			svg.append("g")
 				.call(xAxis)
@@ -247,12 +265,65 @@
 				    }
 			})
 
+			// Sort by Price //
+
+			d3.selectAll("#sortPrice")
+				.on("click", function(){
+					xScale
+						.domain([ 0 , d3.max(data, function(d){return d.Price;} ) ])
+						.range([ 0 , 1100 ])
+					xAxis
+						.scale(xScale)
+						.orient("bottom")
+						.ticks(10)
+					xLabel
+						.text("PRICE (in thousands)")
+					svg.select("g.axis")
+        				.call(xAxis)
+					circles
+						.transition()
+						.attr("cx", function(d){ return xScale(d.Price) ; })
+						.duration(1000);
+			})	
+
+			// Sort by HP //
+
+			d3.selectAll("#sortHP")
+				.on("click", function(){
+					xScale
+						.domain([ 0 , d3.max(data, function(d){return d.Horsepower;} ) ])
+						.range([ 0 , 1100 ])
+					xAxis
+						.scale(xScale)
+						.orient("bottom")
+						.ticks(10)
+					xLabel
+						.text("HORSEPOWER")
+					svg.select("g.axis")
+        				.call(xAxis)
+					circles
+						.transition()
+						.attr("cx", function(d){ return xScale(d.Horsepower) ; })
+						.duration(1000);
+			})	
+
 			// Reset All Filter //
 
 			d3.selectAll("#clearfilter")
 				.on("click", function(){
 					document.getElementById("airbag").checked = false,
 					document.getElementById("no-airbag").checked = false,
+					xScale
+						.domain([ 0 , d3.max(data, function(d){return d.Horsepower;} ) ])
+						.range([ 0 , 1100 ])
+					xAxis
+						.scale(xScale)
+						.orient("bottom")
+						.ticks(10)
+					xLabel
+						.text("HORSEPOWER")
+					svg.select("g.axis")
+        				.call(xAxis)
 					circles
 						.transition()
 						.attr("cy", 400)
@@ -267,20 +338,18 @@
 
 			d3.select("select").on("change", function(data) {
 				var car = d3.select(this).property('value');
-
 			    	circles
 			    		.transition()
 			    		.duration(500)
 			    		.attr("cy", 400)
-			    		.attr("cx", function(d){ return xScale(d.Horsepower) ; })
 			    		.attr("stroke", "none")
 						.attr("stroke-width", "0")
 			    		.attr("z-index", "500")
 						.transition()
 						.filter(function(d){ return d.Manufacturer == car;})
+							.transition()
 							.attr("cy", "300")
 							.duration(800);
-
 
 			});
 
