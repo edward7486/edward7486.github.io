@@ -128,7 +128,8 @@
 					<h4>Sort By:</h4>
 					<button type="button" class="btn btn-default btn-sm" id="sortMpg">MPG City</button>
 					<button type="button" class="btn btn-default btn-sm" id="sortHP">Horsepower</button>
-					<button type="button" class="btn btn-default btn-sm" id="sortFuel">Fuel Tank</button>
+					<!-- Button not working -->
+					<!-- <button type="button" class="btn btn-default btn-sm" id="sortFuel">Fuel Tank</button> -->
 					<hr />
 
 					<p><button type="button" class="btn btn-default btn-sm" id="clearfilter">Clear All Filters</button></p>
@@ -175,7 +176,7 @@
 						.range([ 0 , 600 ]);
 
 			var yScale = d3.scale.linear()
-						.domain([ 0 , d3.max(data, function(d) {return d.Price;}) ])
+						.domain([ 0 , d3.max(data, function(d) { return d.Price; }) ])
 						.range([ 650 , 0 ]);	
 
 			// Create x-Axis // 
@@ -307,7 +308,7 @@
 					document.getElementById("airbag").checked = false,
 					document.getElementById("no-airbag").checked = false,
 					xScale
-						.domain([0, d3.max(data, function(d){return d.Horsepower;})])
+						.domain([0, d3.max(data, function(d){ return d.Horsepower; })])
 						.range([0,600])
 					xAxis
 						.scale(xScale)
@@ -334,7 +335,7 @@
 			d3.selectAll("#sortMpg")
 				.on("click", function(){
 					xScale
-						.domain([0, d3.max(data, function(d){return d.MPG_city;})])
+						.domain([0, d3.max(data, function(d){ return d.MPG_city; })])
 						.range([0,600])
 					xAxis
 						.scale(xScale)
@@ -346,7 +347,7 @@
 						.call(xAxis)
 					circles
 						.transition()
-						.attr("cx", function(d){return xScale(d.MPG_city);})
+						.attr("cx", function(d){ return xScale(d.MPG_city); })
 						.duration(1000);
 			})	
 
@@ -355,7 +356,7 @@
 			d3.selectAll("#sortHP")
 				.on("click", function(){
 					xScale
-						.domain([0, d3.max(data, function(d){return d.Horsepower;})])
+						.domain([0, d3.max(data, function(d){ return d.Horsepower; })])
 						.range([0,600])
 					xAxis
 						.scale(xScale)
@@ -367,7 +368,7 @@
 						.call(xAxis)
 					circles
 						.transition()
-						.attr("cx", function(d){return xScale(d.Horsepower);})
+						.attr("cx", function(d){ return xScale(d.Horsepower); })
 						.duration(1000);
 			})
 
@@ -376,7 +377,7 @@
 			d3.selectAll("#sortFuel")
 				.on("click", function(){
 					xScale
-						.domain([0, d3.max(data, function(d){return d.Fuel_tank_capacity;})])
+						.domain([0, d3.max(data, function(d){ return d.Fuel_tank_capacity; })])
 						.range([0,600])
 					xAxis
 						.scale(xScale)
@@ -388,7 +389,7 @@
 						.call(xAxis)
 					circles
 						.transition()
-						.attr("cx", function(d){return xScale(d.Fuel_tank_capacity);})
+						.attr("cx", function(d){ return xScale(d.Fuel_tank_capacity); })
 						.duration(1000);
 			})												
 
@@ -399,7 +400,7 @@
 			    circles
 			    	.transition()
 			    	.attr("stroke", "none")
-					.filter( function(d) {return (d.Manufacturer == maker );})
+					.filter( function(d) { return (d.Manufacturer == maker ); })
 						.transition()
 						.attr("stroke", "purple")
 						.attr("stroke-width", "3");
