@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+ 	<head>
+ 		<title>Integrated Comments Prototype</title>
+ 		<link rel="stylesheet" href="css/main.css">	
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+ 		<meta name="viewport" content="width=device-width, initial-scale=1">	
+	</head>
+	<body class="menu">
+		<div class="container">
+			<div class="row">
+				<h3>How do the World's Top 10 Companies Compare in Revenue?</h3>
+				<br />
+				<div class="col-md-10">
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+				</div>
+				<div class="col-md-2">
+			    	<header>
+			    		<button type="button" class="menu-toggle">Explore Comments</button>
+			    		<nav class="menu-side">
+			    			<div class="container" id="comments">
+				    			<div class="row"><span class="close-menu">&#x2715;</span></div>
+				    			<div class="row"><h4 id="comment_title">Click on Data for Comments</h4></div>
+				    			<hr id="title_divider"/>
+				    			
+				    			<div id="comment_contents">
+					    			<!-- Begin Comments -->
+
+					    			<div class="row comment">
+					    				<div class="col-md-3">
+					    					<p></p>
+					    					<p class="username"></p>
+					    				</div>
+					    				<div class="col-md-9"><p class="text_comment">test test</div>
+					    			</div>
+
+			    				</div>
+
+			    			</div>
+						</nav>
+					</header>
+				</div>
+			</div>
+			<!-- Chart -->
+			<div class="row">
+				<div id="chart">
+					<h4>Company Sales in 2014</h4>
+				</div>
+			</div>
+			<div class="row">
+				<div id="data"></div>
+			</div>
+		</div>
+
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+		<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+		<script type="text/javascript">
+
+			$( document ).ready(function() {
+
+				$(".menu-toggle").bind("click", function(){
+					$(".menu").addClass("menu-open");
+				})
+
+				$(".close-menu").bind("click", function(){
+					$(".menu").removeClass("menu-open");
+				})
+
+				// -------------- d3 -------------- //
+
+				// variables //
+				var h = 300;
+				var w = 800;
+
+				// begin //
+
+				d3.json("assets/data/mock.json", function(data) {
+
+					var dataset = data;
+
+					// create canvas //
+					var svg = d3.select("#chart")
+								.append("svg")
+								.attr("height", h)
+								.attr("width", w);
+
+					var bars = svg.selectAll("rect")
+								.data(data)
+								.enter()
+								.append("rect");
+
+					bars
+						.attr("width", function(d){ return d.sales; })
+						.attr("height", 25)
+						.attr("y", function(d, i){ return i*30; })
+						.attr("fill", "steelblue")
+						.on("mouseover", function(d){
+							bars
+								.attr("fill", "steelblue")
+							d3.select(this)
+								.attr("fill", "darkred")
+						})
+						.on("mousedown", function(d){
+
+							d3.selectAll(".row .comment").remove()
+
+							var acomm = d.comments; // Creating data variable to access comments later
+
+							var thing = d3.select("#comment_contents").selectAll("div").data(acomm).enter()
+
+							thing
+								.append("div")
+									.attr("class", "row comment")
+									.html(function(d) {return "<div class='col-md-3'><p><img class='img-thumbnail' src='" + d.pic + "'</p><p class='username'>" + d.user_name + "</p></div><div class='col-md-9'><p class='text_comment'>" + d.comment_text + "</p></div>" + "<br /><hr class='comment_divider'/></div>"; })
+
+				    			// <div id="comment_contents">
+					    		// 	<!-- Begin Comments -->
+
+					    		// 	<div class="row comment">
+					    		// 		<div class="col-md-3">
+					    		// 			<p><img src="http://placehold.it/50x50" class="img-thumbnail"></p>
+					    		// 			<p class="username"></p>
+					    		// 		</div>
+					    		// 		<div class="col-md-9"><p class="text_comment"></p></div>
+					    		// 	</div>
+
+						});
+
+				}); // Data End //
+			
+			}); // Document End //
+
+		</script>
+	</body>
+</html>
+
+
