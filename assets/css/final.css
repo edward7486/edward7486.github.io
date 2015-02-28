@@ -1,0 +1,86 @@
+* {
+	font-family: Helvetica-Neue, Helvetica, sans-serif;
+}
+
+.menu {
+	overflow-x: hidden;
+	position: relative;
+	left: 0;
+}
+
+.menu-toggle {
+	float: right;
+}
+
+.close-menu {
+	cursor: pointer;
+	font-size: 18px;
+}
+
+.menu-open header .menu-side {
+	left: 70%;
+}
+
+.menu-side, .menu {
+	-webkit-transition: left 0.5s ease;
+	-moz-transition: left 0.5s ease;
+	transition: left 0.5s ease;
+}
+
+.menu-side {
+	background-color: #333;
+	color: #fff;
+	border-right: 1px solid #000;
+
+	position: fixed;
+	top: 0;
+	left: 100%;
+	width: 30%;
+	height: 100%;
+	padding: 10px;
+	overflow: scroll;
+}
+
+.menu-toggle {
+	padding: 10px 16px;
+	background: none;
+	border: 2px solid steelblue;
+	color: steelblue;
+}
+
+.menu-toggle:hover {
+	background: steelblue;
+	color: #fff;
+	cursor: pointer;
+}
+
+#comments {
+	width: 100%;
+	font-size: 0.9em;
+}
+
+#comment_title {
+	position: relative;
+	text-align: center;
+	width: 100%;
+}
+
+#title_divider {
+	border-top: 3px solid #888;
+}
+
+.comment_divider {
+	border-top: 1px solid #515151;
+	width: 92%;
+}
+
+/* Chart */
+
+#chart {
+	margin-top: 20px;
+}
+
+#chart svg rect:hover {
+	cursor: pointer;
+}
+
