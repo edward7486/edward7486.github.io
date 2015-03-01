@@ -20,7 +20,7 @@
 			    		<nav class="menu-side">
 			    			<div class="container" id="comments">
 				    			<div class="row"><span class="close-menu">&#x2715;</span></div>
-				    			<div class="row"><h4 id="comment_title">Click on Data for Comments</h4></div>
+				    			<div class="row"><h4 id="comment_title">Click on Bars for Comments</h4></div>
 				    			<hr id="title_divider"/>
 				    			
 				    			<div id="comment_contents">
@@ -31,7 +31,7 @@
 					    					<p></p>
 					    					<p class="username"></p>
 					    				</div>
-					    				<div class="col-md-9"><p class="text_comment">test test</div>
+					    				<div class="col-md-9"><p class="text_comment"></div>
 					    			</div>
 
 			    				</div>
@@ -44,7 +44,7 @@
 			<!-- Chart -->
 			<div class="row">
 				<div id="chart">
-					<h4>Company Sales in 2014</h4>
+					<h4>Company Sales in 2014 (millions)</h4>
 				</div>
 			</div>
 			<div class="row">
@@ -73,7 +73,7 @@
 				// -------------- d3 -------------- //
 
 				// variables //
-				var h = 350;
+				var h = 450;
 				var w = 800;
 
 				// tooltip //
@@ -92,7 +92,9 @@
 					var svg = d3.select("#chart")
 								.append("svg")
 								.attr("height", h)
-								.attr("width", w);
+								.attr("width", w)
+								.append("g")
+									.attr("transform", "translate(100, 25)");
 
 					var bars = svg.selectAll("rect")
 								.data(data)
@@ -105,6 +107,10 @@
 						.domain([0, d3.max(dataset, function(d) { return d.sales; })])
 						.range([0, 700]);
 
+					var yScale = d3.scale.ordinal()
+						.domain(["Realblab", "Eidel", "Mydo", "Lajo", "Buzzbean", "Quamba", "Flipbug", "Jamia", "Eire", "Geba"])
+						.rangeRoundBands([0, 300]);
+								
 					function make_x_axis() {        
 						return d3.svg.axis()
 						.scale(xScale)
@@ -115,7 +121,11 @@
 					var xAxis = d3.svg.axis()
 								.scale(xScale)
 								.orient("bottom")
-								.ticks(5)
+								.ticks(5);
+
+					var yAxis = d3.svg.axis()
+								.scale(yScale)
+								.orient("left");
 
 					bars
 						.attr("width", function(d){ return xScale(d.sales); })
@@ -132,8 +142,8 @@
 					                .duration(200)      
 					                .style("opacity", .99)
 				            tooltip
-				            	.html("<h5>" + d.company + "</h5>" + "Sales: " + 
-					            	d.sales + " million dollars"
+				            	.html("<h4>" + d.company + "</h4>" + "Sales: <strong>$" + 
+					            	d.sales + " million dollars</strong>"
 					            	)  
 					                .style("left", (d3.event.pageX) + 30 + "px")     
 					                .style("top", (d3.event.pageY - 75) + "px");
@@ -172,7 +182,11 @@
 					svg.append("g")
 						.call(xAxis)
 						.attr("class", "xAxis")
-						.attr("transform", "translate(0, 300)");	
+						.attr("transform", "translate(0, 300)");
+
+					svg.append("g")
+						.call(yAxis)
+						.attr("class", "yAxis");
 
 
 				}); // Data End //
