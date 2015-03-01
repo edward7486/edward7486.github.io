@@ -73,8 +73,14 @@
 				// -------------- d3 -------------- //
 
 				// variables //
-				var h = 300;
+				var h = 350;
 				var w = 800;
+
+				// tooltip //
+
+				var tooltip = d3.select("body").append("div")   
+					.attr("class", "tooltip")               
+					.style("opacity", 0);
 
 				// begin //
 
@@ -93,8 +99,26 @@
 								.enter()
 								.append("rect");
 
+					// scale // 
+
+					var xScale = d3.scale.linear()
+						.domain([0, d3.max(dataset, function(d) { return d.sales; })])
+						.range([0, 700]);
+
+					function make_x_axis() {        
+						return d3.svg.axis()
+						.scale(xScale)
+						.orient("bottom")
+						.ticks(5)
+					};
+
+					var xAxis = d3.svg.axis()
+								.scale(xScale)
+								.orient("bottom")
+								.ticks(5)
+
 					bars
-						.attr("width", function(d){ return d.sales; })
+						.attr("width", function(d){ return xScale(d.sales); })
 						.attr("height", 25)
 						.attr("y", function(d, i){ return i*30; })
 						.attr("fill", "steelblue")
@@ -103,11 +127,24 @@
 								.attr("fill", "steelblue")
 							d3.select(this)
 								.attr("fill", "darkred")
+				            tooltip
+				            	.transition()        
+					                .duration(200)      
+					                .style("opacity", .99)
+				            tooltip
+				            	.html("<h5>" + d.company + "</h5>" + "Sales: " + 
+					            	d.sales + " million dollars"
+					            	)  
+					                .style("left", (d3.event.pageX) + 30 + "px")     
+					                .style("top", (d3.event.pageY - 75) + "px");
 						})
 						.on("mousedown", function(d){
 
-							d3.selectAll(".row .comment").remove()
+							d3.select("#comment_title")
+								.html(function() { return d.company + " Comments"; })
 
+							d3.selectAll(".row .comment").remove()
+							
 							var acomm = d.comments; // Creating data variable to access comments later
 
 							var thing = d3.select("#comment_contents").selectAll("div").data(acomm).enter()
@@ -115,20 +152,28 @@
 							thing
 								.append("div")
 									.attr("class", "row comment")
-									.html(function(d) {return "<div class='col-md-3'><p><img class='img-thumbnail' src='" + d.pic + "'</p><p class='username'>" + d.user_name + "</p></div><div class='col-md-9'><p class='text_comment'>" + d.comment_text + "</p></div>" + "<br /><hr class='comment_divider'/></div>"; })
+									.html(function(d) {return "<div class='col-md-3'><p><img class='img-thumbnail' src='" + d.pic + "'</p><p class='username'>" + d.user_name + "</p></div><div class='col-md-9'><p class='text_comment'>" + d.comment_text + "</p></div>" + "<br /><hr class='comment_divider'/></div>"; });
 
-				    			// <div id="comment_contents">
-					    		// 	<!-- Begin Comments -->
+						})
+				        .on("mouseout", function(d) {       
+				            tooltip.transition()        
+				                .duration(750)      
+				                .style("opacity", 0);
+		                });
 
-					    		// 	<div class="row comment">
-					    		// 		<div class="col-md-3">
-					    		// 			<p><img src="http://placehold.it/50x50" class="img-thumbnail"></p>
-					    		// 			<p class="username"></p>
-					    		// 		</div>
-					    		// 		<div class="col-md-9"><p class="text_comment"></p></div>
-					    		// 	</div>
+					svg.append("g")         
+				        .attr("class", "grid")
+				        .attr("transform", "translate(0," + h + ")")
+				        .call(make_x_axis()
+				            .tickSize(-h, 0, 0)
+				            .tickFormat("")
+				        );	
 
-						});
+					svg.append("g")
+						.call(xAxis)
+						.attr("class", "xAxis")
+						.attr("transform", "translate(0, 300)");	
+
 
 				}); // Data End //
 			

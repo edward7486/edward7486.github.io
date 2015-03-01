@@ -84,3 +84,47 @@
 	cursor: pointer;
 }
 
+.xAxis path,
+.xAxis line {
+	fill: none;
+	stroke-width: 2px;
+    stroke: gray;
+    shape-rendering: crispEdges;
+}
+
+.xAxis text {
+	color: #333333;
+	font-family: sans-serif;
+	font-size: 15px;
+}
+
+.grid .tick {
+    stroke: white;
+    opacity: 0.7;
+}
+.grid path {
+      stroke-width: 0;
+}
+
+div.tooltip {   
+	position: absolute;                     
+	min-width: 150px;                  
+	height: auto;                 
+	padding: 10px 20px;             
+	font: 12px sans-serif;        
+	background: white;
+	border: 2px solid #333;   
+	color: #333;                
+	pointer-events: none;      
+}
+
+
+
+
+
+
+
+
+
+
+
