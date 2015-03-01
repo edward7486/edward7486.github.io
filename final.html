@@ -133,10 +133,6 @@
 						.attr("y", function(d, i){ return i*30; })
 						.attr("fill", "steelblue")
 						.on("mouseover", function(d){
-							bars
-								.attr("fill", "steelblue")
-							d3.select(this)
-								.attr("fill", "darkred")
 				            tooltip
 				            	.transition()        
 					                .duration(200)      
@@ -149,6 +145,12 @@
 					                .style("top", (d3.event.pageY - 75) + "px");
 						})
 						.on("mousedown", function(d){
+
+							bars
+								.attr("fill", "steelblue")
+
+							d3.select(this)
+								.attr("fill", "green")
 
 							d3.select("#comment_title")
 								.html(function() { return d.company + " Comments"; })
