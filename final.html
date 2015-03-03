@@ -16,7 +16,6 @@
 				</div>
 				<div class="col-md-2">
 			    	<header>
-			    		<button type="button" class="menu-toggle">Explore Comments</button>
 			    		<nav class="menu-side">
 			    			<div class="container" id="comments">
 				    			<div class="row"><span class="close-menu">&#x2715;</span></div>
@@ -36,7 +35,16 @@
 
 			    				</div>
 
+			    				<h5>Leave a Comment</h5>
+
+				    			<div id="add_comment">
+				    				<input id="user_name" type="text" placeholder="Name" />
+				    				<textarea rows="6" id="text_input" placeholder="Comment"></textarea>
+				    				<input type="submit" value="Submit" id="submit"/>
+			    				</div>
+
 			    			</div>
+						
 						</nav>
 					</header>
 				</div>
@@ -62,9 +70,7 @@
 
 			$( document ).ready(function() {
 
-				$(".menu-toggle").bind("click", function(){
-					$(".menu").addClass("menu-open");
-				})
+				// Closing Side Menu with X //
 
 				$(".close-menu").bind("click", function(){
 					$(".menu").removeClass("menu-open");
@@ -133,13 +139,21 @@
 						.attr("y", function(d, i){ return i*30; })
 						.attr("fill", "steelblue")
 						.on("mouseover", function(d){
+							var acomm = d.comments;
+							// Counts Number of Comments
+							var numcomments = 0;
+							for (var k in acomm) {
+							  if (acomm.hasOwnProperty(k)) numcomments++;
+							}
+							//
 				            tooltip
 				            	.transition()        
 					                .duration(200)      
 					                .style("opacity", .99)
 				            tooltip
 				            	.html("<h4>" + d.company + "</h4>" + "Sales: <strong>$" + 
-					            	d.sales + " million dollars</strong>"
+					            	d.sales + " million dollars</strong>" + 
+					            	"<p class='comments'><i>Click to view comments</i>" + " (" + numcomments + ")" + "</p>"
 					            	)  
 					                .style("left", (d3.event.pageX) + 30 + "px")     
 					                .style("top", (d3.event.pageY - 75) + "px");
@@ -165,6 +179,8 @@
 								.append("div")
 									.attr("class", "row comment")
 									.html(function(d) {return "<div class='col-md-3'><p><img class='img-thumbnail' src='" + d.pic + "'</p><p class='username'>" + d.user_name + "</p></div><div class='col-md-9'><p class='text_comment'>" + d.comment_text + "</p></div>" + "<br /><hr class='comment_divider'/></div>"; });
+
+							$(".menu").addClass("menu-open")
 
 						})
 				        .on("mouseout", function(d) {       
