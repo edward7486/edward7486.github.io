@@ -16,6 +16,7 @@
 				</div>
 				<div class="col-md-2">
 			    	<header>
+			    		<button type="button" class="menu-toggle">Explore Comments</button>
 			    		<nav class="menu-side">
 			    			<div class="container" id="comments">
 				    			<div class="row"><span class="close-menu">&#x2715;</span></div>
@@ -35,16 +36,7 @@
 
 			    				</div>
 
-			    				<h5>Leave a Comment</h5>
-
-				    			<div id="add_comment">
-				    				<input id="user_name" type="text" placeholder="Name" />
-				    				<textarea rows="6" id="text_input" placeholder="Comment"></textarea>
-				    				<input type="submit" value="Submit" id="submit"/>
-			    				</div>
-
 			    			</div>
-						
 						</nav>
 					</header>
 				</div>
@@ -70,7 +62,9 @@
 
 			$( document ).ready(function() {
 
-				// Closing Side Menu with X //
+				$(".menu-toggle").bind("click", function(){
+					$(".menu").addClass("menu-open");
+				})
 
 				$(".close-menu").bind("click", function(){
 					$(".menu").removeClass("menu-open");
@@ -139,32 +133,18 @@
 						.attr("y", function(d, i){ return i*30; })
 						.attr("fill", "steelblue")
 						.on("mouseover", function(d){
-
-							var acomm = d.comments;
-							// Counts Number of Comments
-							var numcomments = 0;
-							for (var k in acomm) {
-							  if (acomm.hasOwnProperty(k)) numcomments++;
-							}
-							//
 				            tooltip
 				            	.transition()        
 					                .duration(200)      
 					                .style("opacity", .99)
 				            tooltip
 				            	.html("<h4>" + d.company + "</h4>" + "Sales: <strong>$" + 
-					            	d.sales + " million dollars</strong>" + 
-					            	"<p class='comments'><i>Click to view comments</i>" + " (" + numcomments + ")" + "</p>"
+					            	d.sales + " million dollars</strong>"
 					            	)  
 					                .style("left", (d3.event.pageX) + 30 + "px")     
 					                .style("top", (d3.event.pageY - 75) + "px");
 						})
 						.on("mousedown", function(d){
-
-							var acomm = d.comments; // Creating data variable to access comments later
-							var thing = d3.select("#comment_contents").selectAll("div").data(acomm).enter();
-
-							$(".menu").addClass("menu-open")
 
 							bars
 								.attr("fill", "steelblue")
@@ -176,6 +156,10 @@
 								.html(function() { return d.company + " Comments"; })
 
 							d3.selectAll(".row .comment").remove()
+							
+							var acomm = d.comments; // Creating data variable to access comments later
+
+							var thing = d3.select("#comment_contents").selectAll("div").data(acomm).enter()
 
 							thing
 								.append("div")
