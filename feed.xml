@@ -5,49 +5,45 @@
     <description>UX Design and Research for Enterprise Web Applications</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 03 Mar 2015 13:19:23 -0800</pubDate>
-    <lastBuildDate>Tue, 03 Mar 2015 13:19:23 -0800</lastBuildDate>
+    <pubDate>Wed, 04 Mar 2015 12:51:46 -0800</pubDate>
+    <lastBuildDate>Wed, 04 Mar 2015 12:51:46 -0800</lastBuildDate>
     <generator>Jekyll v2.5.1</generator>
     
       <item>
-        <title>Test</title>
-        <description>This is just a test.
+        <title>What I Learned at Apptio</title>
+        <description>&lt;p&gt;My 4-month long internship at Apptio has come to an end. It was a great experience: I had mentorship from Patrick Neeman (@usabilitycounts), worked on exciting, real-world projects like user-interviews for persona refinement, building sitemaps, prototyping with HTML/CSS, and touched a bit on Java integration. I even had to hand-code HTML e-mails.. a painful but worthwhile learning experience (Outlook for Windows sucks).&lt;/p&gt;
 
-Thanks!
+&lt;p&gt;As I reflect back on the entire internship, I learned a lot of crucial things that I think some designers very early in their career (like me) could benefit from:&lt;/p&gt;
 
-Edward</description>
-        <pubDate>Sun, 01 Mar 2015 00:00:00 -0800</pubDate>
-        <link>/2015/03/01/Hello-World/</link>
-        <guid isPermaLink="true">/2015/03/01/Hello-World/</guid>
+&lt;h4&gt;1. Do work that challenges you&lt;/h4&gt;
+&lt;p&gt;The only way to grow as a designer, or in anything for that matter, is to do things that challenge you. If you always do work that keeps you in your comfort zone, you will never learn as much as you possibly can be. As an example from Apptio, after I finished my HTML prototype I was given the choice of whether I wanted to integrate Java code into my prototype. Without hesitation I said yes, because I knew I&#39;d be doing something new and the potential for learning would be very high. My favorite quote from Richard Branson, &quot;&lt;i&gt;If somebody offers you an amazing opportunity but you are not sure you can do it, say yes – then learn how to do it later.&lt;/i&gt;&quot;&lt;/p&gt;
+
+&lt;h4&gt;2. Gain mentors&lt;/h4&gt;
+&lt;p&gt;I don&#39;t think it can be stressed enough - mentors are important if you are new to anything, particularly a field that is as hard to get into as user experience. The best mentors are those with a lot of experience and knowledge in the domain you are in, and can provide you with unbiased guidance and support. These people are hard to find because a) they are super busy b) they have to want to be a mentor in the first place. The best place to get a mentor is through internships (or networking events if you can pull it off). At Apptio, my mentors coached me on the areas I needed to improve on as a designer, provided feedback on my work, and gave guidance on important things like how to prepare for job interviews. These are all extremely valuable at this early stage of your career.&lt;/p&gt;
+
+&lt;h4&gt;3. Be an Extrovert / Adapt to Cultures&lt;/h4&gt;
+&lt;p&gt;If you know me in real life, I might come off as an outgoing and extroverted type, but it is all an act. The reality is I tend to lean toward being introverted, and being out of the spotlight. If you are like me, &lt;strong&gt;STOP IT&lt;/strong&gt;. Introverted people working in collaborative environments, like in the middle of a Product and Engineering department and Design team, are no fun to work with. If your team is more outgoing, then adapt - it helps with team chemistry which is important if you want to have a good experience. This is a hard one even for me, but it is something I&#39;m working on everyday.&lt;p&gt;
+
+&lt;h4&gt;Conclusion&lt;/h4&gt;
+&lt;p&gt;I hope these tips help you in some way or another, and if you find it helpful, past it along to others who could also benefit. Remember: never stop learning, seek mentors, and be fun to work with. If you can achieve these things and focus on your craft as a designer, you should have an easier time getting into the field of user experience.&lt;/p&gt;
+
+-Edward</description>
+        <pubDate>Sun, 01 Feb 2015 00:00:00 -0800</pubDate>
+        <link>/2015/02/01/Apptio-Reflect/</link>
+        <guid isPermaLink="true">/2015/02/01/Apptio-Reflect/</guid>
         
         
       </item>
     
       <item>
-        <title>Welcome to Jekyll!</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+        <title>Site Colophon</title>
+        <description>&lt;p&gt;This website was built using &lt;a href=&quot;http://jekyllrb.com/&quot; target=&quot;_blank&quot;&gt;Jekyll&lt;/a&gt;, the static website/blog generator. I used HTML, &lt;a href=&quot;http://sass-lang.com/&quot; target=&quot;_blank&quot;&gt;CSS/Sass&lt;/a&gt;, Javascript, and jQuery for development, and am hosting site content on &lt;a href=&quot;https://pages.github.com/&quot; target=&quot;_blank&quot;&gt;Github Pages&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Tom&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &amp;#39;Hi, Tom&amp;#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
-
-</description>
-        <pubDate>Mon, 10 Nov 2014 06:26:56 -0800</pubDate>
-        <link>/jekyll/update/2014/11/10/welcome-to-jekyll/</link>
-        <guid isPermaLink="true">/jekyll/update/2014/11/10/welcome-to-jekyll/</guid>
+-Edward</description>
+        <pubDate>Mon, 01 Sep 2014 00:00:00 -0700</pubDate>
+        <link>/2014/09/01/Site-Colophon/</link>
+        <guid isPermaLink="true">/2014/09/01/Site-Colophon/</guid>
         
-        
-        <category>jekyll</category>
-        
-        <category>update</category>
         
       </item>
     

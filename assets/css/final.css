@@ -149,8 +149,9 @@ div.tooltip {
 	font-size: 1.1em;
 }
 
-#text_input {
-	width: 100%;
+#user_message {
+	min-width: 100%;
+	max-width: 100%;
 	color: #333333;
 	padding: 10px;
 	border: none;

@@ -37,11 +37,11 @@
 
 			    				<h5>Leave a Comment</h5>
 
-				    			<div id="add_comment">
-				    				<input id="user_name" type="text" placeholder="Name" />
-				    				<textarea rows="6" id="text_input" placeholder="Comment"></textarea>
-				    				<input type="submit" value="Submit" id="submit"/>
-			    				</div>
+				    			<form name="myForm">
+				    				<input id="user_name" type="text" placeholder="Name">
+				    				<textarea id="user_message" rows="6"  placeholder="Comment"></textarea>
+				    				<button type = "button" value="Submit" id="submit">Test Button</button>
+			    				</form>
 
 			    			</div>
 						
@@ -60,7 +60,6 @@
 			</div>
 		</div>
 
-
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -76,7 +75,7 @@
 					$(".menu").removeClass("menu-open");
 				})
 
-				// -------------- d3 -------------- //
+				// -------------- D3 -------------- //
 
 				// variables //
 				var h = 450;
@@ -159,7 +158,6 @@
 					                .style("top", (d3.event.pageY - 75) + "px");
 						})
 						.on("mousedown", function(d){
-
 							bars
 								.attr("fill", "steelblue")
 
@@ -205,7 +203,6 @@
 					svg.append("g")
 						.call(yAxis)
 						.attr("class", "yAxis");
-
 
 				}); // Data End //
 			
