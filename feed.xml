@@ -5,23 +5,23 @@
     <description>User Experience Designer</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 05 Mar 2015 23:48:30 -0800</pubDate>
-    <lastBuildDate>Thu, 05 Mar 2015 23:48:30 -0800</lastBuildDate>
+    <pubDate>Fri, 06 Mar 2015 13:45:46 -0800</pubDate>
+    <lastBuildDate>Fri, 06 Mar 2015 13:45:46 -0800</lastBuildDate>
     <generator>Jekyll v2.5.1</generator>
     
       <item>
-        <title>What I Learned at Apptio</title>
-        <description>&lt;p&gt;My 4-month long internship at Apptio has come to an end. It was a great experience: I had mentorship from Patrick Neeman (@usabilitycounts), worked on exciting, real-world projects like user-interviews for persona refinement, building sitemaps, prototyping with HTML/CSS, and touched a bit on Java integration. I even had to hand-code HTML e-mails.. a painful but worthwhile learning experience (Outlook for Windows sucks).&lt;/p&gt;
+        <title>3 Lessons I Learned at Apptio</title>
+        <description>&lt;p&gt;My internship at Apptio has come to an end. It was a great experience: I had mentorship from Patrick Neeman (@usabilitycounts), worked on exciting real-world projects like user-interviews for persona refinement, built my first sitemap, and prototyped new UIs with HTML/CSS. I even hand-coded an HTML e-mail.. a painful but worthwhile learning experience.&lt;/p&gt;
 
-&lt;p&gt;As I reflect back on the entire internship, I learned a lot of crucial things that I think some designers very early in their career (like me) could benefit from:&lt;/p&gt;
+&lt;p&gt;Looking back on the internship, I&#39;d like to share some valuable lessons I learned that I think designers early in their career could benefit from:&lt;/p&gt;
 
-&lt;h4&gt;1. Do work that challenges you&lt;/h4&gt;
+&lt;h4&gt;1. Do work that challenges you.&lt;/h4&gt;
 &lt;p&gt;The only way to grow as a designer, or in anything for that matter, is to do things that challenge you. If you always do work that keeps you in your comfort zone, you will never learn as much as you possibly can be. As an example from Apptio, after I finished my HTML prototype I was given the choice of whether I wanted to integrate Java code into my prototype. Without hesitation I said yes, because I knew I&#39;d be doing something new and the potential for learning would be very high. My favorite quote from Richard Branson, &quot;&lt;i&gt;If somebody offers you an amazing opportunity but you are not sure you can do it, say yes – then learn how to do it later.&lt;/i&gt;&quot;&lt;/p&gt;
 
-&lt;h4&gt;2. Gain mentors&lt;/h4&gt;
+&lt;h4&gt;2. Get a mentor(s).&lt;/h4&gt;
 &lt;p&gt;I don&#39;t think it can be stressed enough - mentors are important if you are new to anything, particularly a field that is as hard to get into as user experience. The best mentors are those with a lot of experience and knowledge in the domain you are in, and can provide you with unbiased guidance and support. These people are hard to find because a) they are super busy b) they have to want to be a mentor in the first place. The best place to get a mentor is through internships (or networking events if you can pull it off). At Apptio, my mentors coached me on the areas I needed to improve on as a designer, provided feedback on my work, and gave guidance on important things like how to prepare for job interviews. These are all extremely valuable at this early stage of your career.&lt;/p&gt;
 
-&lt;h4&gt;3. Be an Extrovert / Adapt to Cultures&lt;/h4&gt;
+&lt;h4&gt;3. Be an Extrovert / Adapt to Cultures.&lt;/h4&gt;
 &lt;p&gt;If you know me in real life, I might come off as an outgoing and extroverted type, but it is all an act. The reality is I tend to lean toward being introverted, and being out of the spotlight. If you are like me, &lt;strong&gt;STOP IT&lt;/strong&gt;. Introverted people working in collaborative environments, like in the middle of a Product and Engineering department and Design team, are no fun to work with. If your team is more outgoing, then adapt - it helps with team chemistry which is important if you want to have a good experience. This is a hard one even for me, but it is something I&#39;m working on everyday.&lt;p&gt;
 
 &lt;h4&gt;Conclusion&lt;/h4&gt;
@@ -37,7 +37,7 @@
     
       <item>
         <title>Site Colophon</title>
-        <description>&lt;p&gt;This website was built using &lt;a href=&quot;http://jekyllrb.com/&quot; target=&quot;_blank&quot;&gt;Jekyll&lt;/a&gt;, the static website/blog generator. I used HTML, &lt;a href=&quot;http://sass-lang.com/&quot; target=&quot;_blank&quot;&gt;CSS/Sass&lt;/a&gt;, Javascript, and jQuery for development, and am hosting site content on &lt;a href=&quot;https://pages.github.com/&quot; target=&quot;_blank&quot;&gt;Github Pages&lt;/a&gt;.&lt;/p&gt;
+        <description>&lt;p&gt;This website is built with &lt;a href=&quot;http://jekyllrb.com/&quot; target=&quot;_blank&quot;&gt;Jekyll&lt;/a&gt;, a static website/blog generator. I used HTML5, CSS3, &lt;a href=&quot;http://sass-lang.com/&quot; target=&quot;_blank&quot;&gt;Sass&lt;/a&gt;, jQuery, and am hosting free at &lt;a href=&quot;https://pages.github.com/&quot; target=&quot;_blank&quot;&gt;Github Pages&lt;/a&gt;. All development was done on a Macbook Air with Sublime Text 2. The hero image is from &lt;a href=&quot;https://unsplash.com/&quot; target=&quot;_blank&quot;&gt;Unsplash&lt;/a&gt;, a free high-quality photo library I highly recommend. This site &lt;i&gt;is&lt;/i&gt; mobile friendly.&lt;/p&gt;
 
 -Edward</description>
         <pubDate>Mon, 01 Sep 2014 00:00:00 -0700</pubDate>
