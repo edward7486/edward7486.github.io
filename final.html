@@ -62,7 +62,6 @@
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 		<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 		<script type="text/javascript">
@@ -101,12 +100,14 @@
 								.append("g")
 									.attr("transform", "translate(100, 25)");
 
+					// create bars
+
 					var bars = svg.selectAll("rect")
 								.data(data)
 								.enter()
 								.append("rect");
 
-					// scale // 
+					// scales // 
 
 					var xScale = d3.scale.linear()
 						.domain([0, d3.max(dataset, function(d) { return d.sales; })])
@@ -115,13 +116,17 @@
 					var yScale = d3.scale.ordinal()
 						.domain(["Realblab", "Eidel", "Mydo", "Lajo", "Buzzbean", "Quamba", "Flipbug", "Jamia", "Eire", "Geba"])
 						.rangeRoundBands([0, 300]);
-								
+							
+					// function from stackoverflow to render vertical grid marks
+
 					function make_x_axis() {        
 						return d3.svg.axis()
 						.scale(xScale)
 						.orient("bottom")
 						.ticks(5)
 					};
+
+					// axes
 
 					var xAxis = d3.svg.axis()
 								.scale(xScale)
@@ -187,6 +192,8 @@
 				                .style("opacity", 0);
 		                });
 
+	                // vertical ticks on grid
+
 					svg.append("g")         
 				        .attr("class", "grid")
 				        .attr("transform", "translate(0," + h + ")")
@@ -195,10 +202,14 @@
 				            .tickFormat("")
 				        );	
 
+				    // append xAxis
+
 					svg.append("g")
 						.call(xAxis)
 						.attr("class", "xAxis")
 						.attr("transform", "translate(0, 300)");
+
+					// apend yAxis
 
 					svg.append("g")
 						.call(yAxis)

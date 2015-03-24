@@ -1,25 +1,20 @@
 $(document).ready(function(){
 
-	// Moving Register Button in Header based on Window Width //
-	if ( $(window).width() <= 1024 ) {
-		
-		$("button.register").remove().prependTo(".container");
-
-	} else if ( $(window).width() >= 1024 ) {
-
-		$("button.register").remove().appendTo("header");
-	
-	}
-
-	//
+	// Unslider //
+    $('.banner').unslider({
+		speed: 1000,
+		delay: 5000, 
+		keys: true,               
+		dots: true,              
+		fluid: false 
+    });
 
 	// Inserting Close button for side menu
 
 	if ( $(window).width() <= 1024 ) {
 
 		$("ul.nav").prepend("<div id='close'>&#x2715;</div>");
-
-		$("header nav").append("<div id='hamburger'>&#9776;</div>");
+		$("body").prepend("<div id='hamburger'>&#9776;</div>");
 
 	} else {
 
@@ -28,27 +23,25 @@ $(document).ready(function(){
 
 	}
 
-	//
-
 	// Menu Toggling //
 
 	$("#hamburger").on("click", function(){
 
-		$('header nav ul').addClass( 'open' );
+		$('nav ul.nav').addClass( 'open' );
 		$('body').bind( 'touchmove', function(e){ e.preventDefault() });
 
 	});
 
 	$("#close").on("click", function(){
 
-		$('header nav ul').removeClass( 'open' );
+		$('nav ul.nav').removeClass( 'open' );
 		$('body').unbind( 'touchmove' );
 
 	});
 
 	$(".nav li a").on("click", function(){
 
-		$('header nav ul').removeClass( 'open' );
+		$('nav ul.nav').removeClass( 'open' );
 		$('body').unbind( 'touchmove' );
 
 	});
