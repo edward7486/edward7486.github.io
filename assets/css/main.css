@@ -417,6 +417,8 @@ footer {
     border: 1px solid #D9D9D9; }
   .process .wrapper h4 {
     margin: 16px 0px; }
+  .process .wrapper .process-link {
+    text-decoration: underline; }
 @media screen and (max-width: 800px) {
   .process .wrapper {
     max-width: 320px; }
