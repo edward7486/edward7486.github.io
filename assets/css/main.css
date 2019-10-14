@@ -299,7 +299,7 @@ body {
     body .work-block {
       max-width: 320px; }
       body .work-block .work-image {
-        max-width: 320px; }
+        max-width: 100%; }
       body .work-block .work-desc {
         max-width: 320px; } }
 
