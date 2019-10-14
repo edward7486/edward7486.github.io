@@ -243,8 +243,8 @@ body {
     margin-bottom: 32px; }
     body .work-block .work-image {
       display: inline-block;
-      max-width: 100%;
-      height: auto;
+      width: 400px;
+      height: 200px;
       float: left; }
       body .work-block .work-image#lp-case {
         background: #fafafa; }
@@ -299,7 +299,7 @@ body {
     body .work-block {
       max-width: 320px; }
       body .work-block .work-image {
-        width: 100%; }
+        max-width: 320px; }
       body .work-block .work-desc {
         max-width: 320px; } }
 
