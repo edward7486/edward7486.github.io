@@ -100,7 +100,7 @@ During the research phase, I conducted interviews with users of dashboards and c
 <h4>Understanding the user through interviews</h4>
 <p>Our team learned about dashboard issues months before the project was taken on. My first task was to learn directly from users and customer success, who channeled many of the repeated pain points and frustrations they encountered when working with customers. My main goal was to learn what problems users were having and how they expected dashboards to work for them.</p>
 
-<p>A big pattern and point of frustration coming from interviews was the <span class="fix">pain around filtering</span>. In LiquidPlanner, dashboards are comprised of many “widgets” or dashboard tiles. In order for widgets to display information, a filter must be used to specify what content to show. Users had great difficulty using the filters and it was a major stumbling point. Our Marketing Manager told me, “<span class="fix">if a customer doesn’t understand how to use filters, they can’t use Dashboards</span>”. This was primarily a problem when creating new dashboards and was a barrier to entry. In the example below, a donut chart widget is being configured - clicking the filter icon brings up a dropdown shown right.</p>
+<p>A big pattern and point of frustration coming from interviews was the <span class="fix">pain around filtering</span>. In LiquidPlanner, dashboards are comprised of many “widgets” or dashboard tiles. In order for widgets to display information, a filter must be used to specify what content to show. Users had great difficulty using the filters and it was a major stumbling point. Our Product Marketing Manager told me, “<span class="fix">if a customer doesn’t understand how to use filters, they can’t use Dashboards</span>”. This was primarily a problem when creating new dashboards and was a barrier to entry. In the example below, a donut chart widget is being configured - clicking the filter icon brings up a dropdown shown right.</p>
 
 <p><img src="/assets/img/cases/lp/commonfilter.png" /></p>
 
@@ -114,9 +114,10 @@ During the research phase, I conducted interviews with users of dashboards and c
 
 <ul>
   <li>The moment of <span class="fix">creating a dashboard</span> was the main source of pain, as any new dashboard had to be made from scratch / a blank slate. It was <span class="fix">difficult to have to create so many widgets by-hand</span>.</li>
-  <li>Utilizing filters within widgets leads to lots of clicks and confusion, and is the <span class="fix">primary blocker of dashboard set up</span>.</li>
-  <li><span class="fix">Competitive PM software were ahead with dashboard set up</span>, as users never had to start from a blank slate</li>
-  <li>Users used dashboards in very similar ways, and the issues above primarily affect project and team managers.</li>
+  <li>Creating widgets is difficult because of <strong>filters</strong>, which are difficult to understand and use properly and is the <span class="fix">primary blocker of dashboard set up</span>.</li>
+  <li><span class="fix">Competitive PM products made it much easier for their users</span>, as users never had to start from a blank slate.</li>
+  <li>The issues above primarily affects project and team managers, the personas most commonly using dashboards. The difficulty of dashboards made them spend much more time than they wanted to in LiquidPlanner.</li>
+  <li>Users used dashboards in very similar ways, with many similarities with widget types.</li>
 </ul>
 
 <h4>Shared empathy around the problem</h4>
@@ -125,26 +126,28 @@ During the research phase, I conducted interviews with users of dashboards and c
 <p><img src="/assets/img/cases/lp/lp-storyboard.jpeg" /></p>
 
 <h4>Current user flow</h4>
-<p>In addition, I created a flow diagram to help visualize the user’s task and primary point of frustration. I wanted to challenge myself to think of new ways to get the user to their end goal.</p>
+<p>In addition, I created a flow diagram to help visualize the user’s task and primary point of frustration. I wanted to challenge myself to think of new ways to get the user to their end goal. This process is the same for any type of dashboard created.</p>
 
 <p><img src="/assets/img/cases/lp/lp-flow.png" /></p>
 
 <h4>Focusing on the Problem</h4>
-<p>While fixing filtering seemed to be the obvious solution, our team was challenged to see if there were other ways to help users. Filtering was a UI component used in many places of the product outside of dashboards, and was a big risk for scope creep. Still, our team was focused on helping users create valuable dashboards for their projects and teams, and to see if there were ways to do so without requiring filters.</p>
+<p>While fixing filtering seemed to be the obvious solution, our team was challenged to see if there were other ways to help users. Filtering was a UI component used in many places of the product outside of dashboards, and was a big risk for scope creep. Still, our team was focused on helping users create valuable dashboards for their projects and teams, and to see if there were ways to do so without requiring fixing filters.</p>
 
 <!-- Design !-->
 <hr class="section" />
 
-<h2>Design</h2>
+<h2>Ideation</h2>
 <p>Our next step was to begin design ideation. I co-led a brainstorm session and included storyboards and task flows so that participants could understand the current user experience and the problem we were trying to solve. Members from Sales, CS, and Engineering were involved. We had many ideas, including a redesign of filters.</p>
 
 <p><img src="/assets/img/cases/lp/lp-4.png" /></p>
 
 <p>Perhaps the most common idea that emerged was pre-built dashboards, or templates. The team honed in on this idea as we felt it solved the problem of dashboard creation best and competitors had a similar approach. In the bottom-left most sketch in the image below, we also imagined making dashboard creation simple from outside dashboards, such as within a “project page”. Notice in (3) the lack of filtering mechanism seen in earlier product screenshots. For each template type, we decided to use widgets and configurations commonly found from our content inventory.</p>
 
-<p>We wanted to test this idea with customers to see if it was on the right track and my next step was beginning the recruiting process and prototyping.</p>
-
 <p><img src="/assets/img/cases/lp/lp-sketch.jpg" /></p>
+
+<p>Our proposed flow felt more straight forward. But of course, we needed to test this flow and the dashboard contents with users. The next step was beginning the recruiting process and prototyping the flow and screens.</p>
+
+<p><img src="/assets/img/cases/lp/lp-flow-proposed.png" class="mt-4" /></p>
 
 <hr class="section" />
 
@@ -158,14 +161,15 @@ During the research phase, I conducted interviews with users of dashboards and c
 <p>With testing we wanted to learn if users understood the benefit of templates and if they were able to successfully complete the task of creating different dashboard types. Users were able to successfully do this across the board, and noted the simplicity of creating dashboards this way, which they enjoyed. Most of the critical feedback was around the widgets used in each template.</p>
 
 <h4>Widget feedback</h4>
-<p>While the base dashboards were very useful and a step-up from the existing experience, some participants were very particular about the widgets they wanted - and wanted the freedom to customize the templates further to include other widgets. This feedback was eventually incorporated into the final design, allowing users to add their own widgets. Further, we iterated on our modal screen to condense it into one modal, versus two steps as seen in the prior screenshot.</p>
+<p>While the base dashboards were very useful and a step-up from the existing experience, some <span class="fix">participants were very particular about the widgets they wanted - and wanted the freedom to customize the templates further to include their own widgets</span>. This feedback was eventually incorporated into the final design, allowing users to add their own widgets into templates. Further, we iterated on our modal screen to condense two steps into one (choose type and configure dashboard), to make the modal more comprehensive and less step oriented.</p>
 
 <p><img src="/assets/img/cases/lp/lp-prototype-2.png" /></p>
 
 <hr class="section" />
 
-<h2>Success</h2>
-<p><img class="full-width" src="/assets/img/cases/lp/lp-results.png" /></p>
+<h2>Impact</h2>
+<p><img class="full-width mb-2" src="/assets/img/cases/lp/lp-results.png" />
+Two quarters later, our engineering team ran a query to see how users were adopting the new feature. To our surprise, the adoption rate was great. Of all dashboards created by customers, over 60% of them utilized one of the templates as part of this feature. Moreover, we heard great feedback from customers who felt it was much easier to get going with dashboards - and our customer success team noted the impact in the form of less how-to tickets and calls around dashboard set up.</p>
 </div>
 	</div>
 </main>
