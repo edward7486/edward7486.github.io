@@ -71,76 +71,62 @@
 <p>In April 2022 I joined Reddit’s Data Tools team and led design and research for a key internal analytics application used primarily by the sales team. I worked closely with an engineering partner to define and execute on product improvements that ultimately improved time to insights and increased sales productivity across Reddit.</p>
 
 <h4>Sales at Reddit</h4>
-<h2>The Reddit sales team is responsible for getting clients interested in advertising on Reddit, committing spend, and ultimately delivering successful advertising campaigns for their clients.</h2>
-<p>The sales cycle is generally three phases: outreach, plan and launch, and assess (retrospective). Sales uses an internal analytics application to understand various data points to bring to facilitate client interactions and inform each phase.</p>
-
-<p><img src="/assets/img/cases/reddit/sales-flow.png" /></p>
-
-<h4>Defining the Problem</h4>
-<h2>I conducted one-on-one interviews with the sales team to understand why and how they were using the platform, as well as challenges they faced.</h2>
-
-<p><img src="/assets/img/cases/reddit/sales-team.png" />
-After just a few conversations an immediate and core problem emerged. The platform required use of a SQL-like query language; this was a major obstacle and product deterrent for a majority of sales.</p>
-
-<p><img src="/assets/img/cases/reddit/bar%20chart.png" /></p>
-
-<p>This screenshot shows top communities posting about the brand Mercedes Benz. To use the application, the user types and runs a query to produce a data view. A few issues that arose from the querying experience:</p>
+<h2>The Reddit sales team gets clients interested in advertising on Reddit, committing spend, and delivers successful campaigns for clients.</h2>
+<p>To support the sales cycle, sales uses an internal analytics application to understand various data points to bring to client meetings and inform each phase of the cycle. For example if working with Adidas, key questions sales will answer and bring to discussions:</p>
 
 <ul>
-  <li>Sapping time from teammates to get help.</li>
+  <li>Where is Adidas talked about most on Reddit?</li>
+  <li>Is Adidas talked about more on Reddit compared to competitors (Nike, Reebok)?</li>
+  <li>What are Redditors saying about Adidas?</li>
+  <li>Are Redditors talking more or less about athletic shoes?</li>
+</ul>
+
+<p><img src="/assets/img/cases/reddit/reddit-journey-map.png" /></p>
+
+<h4>The Problem</h4>
+<h2>The analytics application emphasized and required coding for deep insights; a major obstacle and product deterrent for a majority of sales.</h2>
+
+<p><img src="/assets/img/cases/reddit/sales-team.png" /></p>
+
+<p>This led to other cascading issues:</p>
+
+<ul>
+  <li>Sales sapping time from technical teams to get help.</li>
   <li>Saving and using the same queries repeatedly, leading to a fear of missing out on data.</li>
-  <li>Comparisons are repetitive time consuming tasks. For example, “are Redditors talking about sneakers more compared to last year?” requires two queries.</li>
+  <li>Simple comparisons became repetitive time consuming tasks.</li>
   <li>It was off-putting to newer sales people.</li>
   <li>Abandoning the product altogether.</li>
 </ul>
 
-<p>It was clear the solution could provide more value to the sales team. I viewed this problem as an existential threat to the longevity and widespread adoption of the product at Reddit. My focus was on increasing the proportion of the sales team utilizing the product in a self-sufficient way and improving overall usability.</p>
-
-<h4>Exploration</h4>
-<h2>I hypothesized that a major product pivot and strategy was required. Ideation focused on alternatives to querying and getting feedback from sales and my design team early and often.</h2>
-
-<p>As querying was a strong pain point I brainstormed various solutions to make querying less technical including a “chart builder” and “plain text querying”. Ultimately users gravitated towards an experience that avoided querying altogether; a search experience that provided key information in the form of a report. I focused on refining this experience to provide as much useful information as possible.</p>
-
-<p><img src="/assets/img/cases/reddit/reddit-journey-map.png" /></p>
-
-<p>Charting the user journey I learned that sales typically queries based on a brand, product, or topic like “skin care”. I captured all of the key queries that sales was running and prioritized this information throughout the design. Some queries were less common than others and deprioritized.</p>
-
-<p><img src="/assets/img/cases/reddit/initial-keyword-search.png" /></p>
-
 <h4>Solution</h4>
-<h2>After two rounds of feedback and user testing the solution was considered a vast improvement.</h2>
-<p>A number of refinements to the design include visual alignment with Reddit’s internal design system. With the sales team clamoring for a ship date, we launched the solution later in the same quarter.</p>
+<h2>Empowering Reddit sales with plain text searches and templated reports, each tailored to support key sales questions.</h2>
 
-<h3>Empowering the user with simple form searching</h3>
-<p><img src="/assets/img/cases/reddit/1-Reddit-forms.png" />
-Users can simply search for a keyword to generate an entire report of common queries. The inclusion of advanced fields was designed to improve accuracy. For example if I want to generate a report for the retailer “Target”, I have to exclude instances that reference “target” in the wrong context. For example, I might want to exclude subreddits that discuss firearms or archery.</p>
+<h3>Keyword Report</h3>
+<p><img src="/assets/img/cases/reddit/7-keyword-report.png" />
+Users can type a keyword and generate an entire report of valuable insights to answer common questions and inform client meetings.</p>
 
-<h3>A way to see growth or dips in high level metrics</h3>
-<p><img src="/assets/img/cases/reddit/2-Reddit-numbers.png" />
-A common sales task is determining whether growth in discussion occurred for a topic or brand. This is a common feature in other information dashboards and was highly valued by users in feedback sessions.</p>
+<h3>Share of Voice Report</h3>
+<p><img src="/assets/img/cases/reddit/8-sov-report.png" />
+Instead of manual searching, tallying, and creating custom charts in Excel - this report allows sales to easily input and filter brand searches and makes comparison a breeze.</p>
 
-<h3>Key information, grouped by varied metrics</h3>
-<p><img src="/assets/img/cases/reddit/3-Reddit-charts-tabs.png" />
-I learned that sales doesn’t have a single metric they unanimously care about. Some care about Top Communities based on posts mentioning the keyword, others care about comments. Because of that, I designed a tabbed approach to allow flexibility for users to choose what is most valuable in their context.</p>
-
-<h3>Top posts table</h3>
-<p><img src="/assets/img/cases/reddit/4-Reddit-posts.png" />
-I designed a simple navigation for the report to include a section “conversation” that includes top posts and word clouds. This information tells the story about the keyword.</p>
+<h3>Communities Report</h3>
+<p><img src="/assets/img/cases/reddit/6-communities-report.png" />
+Sales commonly needed to answer questions about specific communities. Is growth occuring? What do Redditors discuss most? If a Redditor posts in this community, where else do they post? This report answers all of those questions and more.</p>
 
 <h3>Word clouds!</h3>
 <p><img src="/assets/img/cases/reddit/5-Reddit-wordcloud.png" />
-This was a hot feature request and almost always shown to clients. This was a net new feature and gives sales and clients an idea of what Redditors are talking about in context of the brand, “what’s the story of my brand?”, in addition to top posts.</p>
+This was a hot feature request and almost always shown to clients. This was a net new visualization type and used by sales as a signal around the “story” on Reddit for a given topic or brand.</p>
 
 <h4>Impact</h4>
-<h2>A quarter after launch we saw a number of signals indicating strong success with our project.</h2>
+<h2>The reports were considered a vast improvement and led to various increases in product usage and positive affirmation from the global Sales team.</h2>
 
 <ul>
   <li>~120 Keyword users per week (35% of sales team) compared to 12% normally.</li>
   <li>~1.7 queries per user compared to 1.2 normally.</li>
   <li>Qualitative indicators include much adoration in our Slack #sales channel!</li>
+  <li>We even saw positive comments from non-Sales users including Data Science who found the new reports more accessible</li>
+  <li>An increase in feature requests from the sales team. I used this as a signal of them being more invested in the producted after our changes.</li>
 </ul>
-
-<p>Additionally, the success and reception of this report led to two additional reports that supported other niche and specific queries sales needed. These reports were the “Share of Voice” and “Communities” reports.</p>
 
 			<a href="/" class="return">Back Home</a>
 		</div>
